@@ -4,6 +4,7 @@ import "../Styles/signup.css";
 import { FcGoogle } from 'react-icons/fc';
 import { FaTwitter } from 'react-icons/fa';
 import { BsFacebook } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ const SignUp = () => {
       </div>
       <div className='registerSection'>
         <div>
-          <h3 className='mb-5'>Register</h3>
+          <h3 className='mb-5' style={{ color: "gray" }}>Register</h3>
         </div>
         <div className='form-container'>
           <div className='container-xl'>
@@ -72,12 +73,12 @@ const SignUp = () => {
             <div> <p style={{ textAlign: 'center' }}>or</p></div>
             <div className='social media'>
               <div className='btn1'>
-                <button type="button" className='p-2 mb-3'> <FcGoogle size={25} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Google</span></button>
-                <button type="button" className='p-2 mb-3'> <FaTwitter size={25} style={{ color: "#499eda" }} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Twitter</span></button>
-                <button type="button" className='p-2 mb-3'> <BsFacebook size={25} style={{ color: "#0a87ed" }} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>FaceBook</span></button>
+                <button type="button" className='p-2 mb-3'> <FcGoogle size={25} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with Google</span></button>
+                <button type="button" className='p-2 mb-3'> <FaTwitter size={25} style={{ color: "#499eda" }} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with Twitter</span></button>
+                <button type="button" className='p-2 mb-3'> <BsFacebook size={25} style={{ color: "#0a87ed" }} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with FaceBook</span></button>
               </div>
             </div>
-            <div style={{ textAlign: "center", color: "gray" }}>Already have an account? <span style={{ color: "#5460fb" }} className='fw-semibold px-3' >Sign In</span></div>
+            <div style={{ textAlign: "center", color: "gray" }}>Already have an account? <span style={{ color: "#5460fb" }} className='fw-semibold px-3' ><Link to="/login" className='text-decoration-none'>Sign In</Link></span></div>
 
           </div>
         </div>
