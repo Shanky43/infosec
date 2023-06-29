@@ -304,7 +304,7 @@
     gap: 5px;
 }
 
-.frame150>ul>li {
+.frame150>p {
     width: 141px;
     height: 24px;
     /* font-family: Open Sans; */
@@ -314,22 +314,22 @@
     letter-spacing: 0.15000000596046448px;
     text-align: left;
     list-style: none;
-    margin-left: -50px;
+    margin-left: -15px;
 }
 
 .group210 {
     position: absolute;
     width: 96px;
     height: 24px;
-    top: 382.636474609375px;
-    left: 22px;
+    top: 386.636474609375px;
+    left: 16px;
+    cursor: pointer;
     /* border: 1px solid salmon; */
 }
 
 .settingicon {
     width: 20px;
     height: 20px;
-
     position: relative;
 }
 
@@ -338,10 +338,44 @@
     width: 66px;
     height: 24px;
     top: 2px;
-    left: 30px;
+    left: 35px;
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
     letter-spacing: 0.15000000596046448px;
     text-align: left;
 }
+
+.logoutsection {
+    /* position: absolute; */
+    width: 245px;
+    height: 26px;
+    top: calc(421.64px - 118.36px);
+    padding: 1px 22px 1px 22px;
+    /* gap: 10px; */
+    cursor: pointer;
+    /* border: 1px solid salmon; */
+}
+
+.logouticon {
+    /* display: flex; */
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    margin-left: -20px;
+    position: relative;
+}
+
+.logoutname {
+    position: absolute;
+    width: 57px;
+    height: 24px;
+    top: 1px;
+    left: 35px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+}
+

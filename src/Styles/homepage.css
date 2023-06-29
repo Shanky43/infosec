@@ -8,3 +8,8 @@
     top: 48px;
     left: 90px;
 }
+
+.sidebar-1 {
+    display: flex;
+    justify-content: space-between;
+}
