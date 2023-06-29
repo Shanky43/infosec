@@ -1,0 +1,347 @@
+.sidebar-box {
+    position: relative;
+    width: 295px;
+    height: 606px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+
+.sidebar-content {
+    position: absolute;
+    /* border: 1px solid black; */
+    width: 245px;
+    height: 566px;
+    top: 20px;
+    left: 5px;
+}
+
+.group37 {
+    position: absolute;
+    /* border: 1px solid red; */
+    width: 120.22px;
+    height: 93.12px;
+    left: 79.8px;
+}
+
+.frame36 {
+    position: absolute;
+    /* border: 1px solid blue; */
+    width: 62.18181610107422px;
+    height: 61.39751434326172px;
+    left: calc(108.8px - 79.8px);
+}
+
+.ellipse1 {
+    /* border: 1px solid darkblue; */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    background: #133D7A;
+}
+
+.userprofilename {
+    position: absolute;
+    width: 26px;
+    height: 19px;
+    top: 20px;
+    left: 17px;
+}
+
+
+.username {
+    /* font-family: Open sans-serif; */
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+}
+
+.frame212 {
+    /* border: 1px solid orange; */
+    position: absolute;
+    width: 120.21818542480469px;
+    height: 19.442546844482422px;
+    top: 73.677001953125px;
+    left: calc(245px-79.8px);
+
+}
+
+.profileName {
+    /* font-family: Open Sans; */
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.frame213 {
+    /* border: 1px solid rebeccapurple; */
+    position: relative;
+    height: 447.636474609375px;
+    top: 118.363525390625px;
+    width: 245px;
+}
+
+.group34 {
+    /* border: 1px solid blue; */
+    width: 245px;
+    height: 208.636474609375px;
+}
+
+.companybuilding {
+    /* border: 1px solid blue; */
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 4px;
+    left: 20px;
+}
+
+.companydetails {
+    position: absolute;
+    width: 136px;
+    height: 24px;
+    top: 4px;
+    left: 54px;
+}
+
+.companydetails>p {
+    /* border: 1px solid black; */
+    position: absolute;
+    color: #1676F3DE;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+}
+
+.note {
+    position: absolute;
+    /* border: 2px solid black; */
+    width: 245px;
+    height: Hug (32px);
+    top: 47px;
+    padding: 4px 20px 4px 20px;
+    gap: 10px;
+}
+
+.frame48 {
+    width: 106px;
+    height: 24px;
+    /* border: 1px solid green; */
+}
+
+.noteicon {
+    width: 24px;
+    height: 24px;
+    /* margin-left: -5px; */
+    display: flex;
+    position: relative;
+
+}
+
+.notedetails {
+    position: absolute;
+    width: 81px;
+    height: 24px;
+    left: 34px;
+    /* border: 1px solid pink; */
+}
+
+.notedetails>p {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+}
+
+.frame55 {
+    position: absolute;
+    width: 207px;
+    height: 115px;
+    top: 93.636474609375px;
+    left: 19px;
+    /* border: 1px solid green; */
+}
+
+.frame54 {
+    width: 207px;
+    height: 28px;
+    position: relative;
+}
+
+.jobsearchicon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 4px;
+    display: flex;
+    /* border: 1px solid black; */
+}
+
+.jobs {
+    position: absolute;
+    width: 34px;
+    height: 24px;
+    left: 34px;
+    /* border: 1px solid green; */
+}
+
+.jobs>p {
+    /* font-family: Open Sans; */
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    color: #000000DE;
+}
+
+.frame53 {
+    position: absolute;
+    width: 78px;
+    height: 92px;
+    top: 33px;
+    left: 34px;
+    padding: 0px 5px 10px 0px;
+
+}
+
+.frame53>ul>li {
+    width: 73px;
+    height: 24px;
+    list-style: none;
+    /* border: 1px solid green; */
+    /* font-family: Open Sans; */
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    margin-left: -28px;
+}
+
+.group33 {
+    position: absolute;
+    width: 207px;
+    height: 144px;
+    top: calc(223.636474609375px - 118.36px);
+    left: 19px;
+    /* border: 1px solid red; */
+}
+
+.group35 {
+    /* border: 1px solid red; */
+    width: 207px;
+    height: 144px;
+    top: 223.636474609375px;
+    left: 19px;
+}
+
+.applicationsection {
+    position: absolute;
+    width: 207px;
+    height: 28px;
+    top: calc(223.64px - 118.363525390625px);
+    padding: 0px 20px 0px 20px;
+    gap: 10px;
+    /* border: 1px solid blue; */
+}
+
+.frame50 {
+    width: 204px;
+    height: 28px;
+    position: relative;
+}
+
+.applicationicon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 4px;
+    left: -22px;
+    display: flex;
+}
+
+.applicationname {
+    position: absolute;
+    width: 101px;
+    height: 24px;
+    left: 33px;
+    /* border: 1px solid blue; */
+}
+
+
+.applicationname>p {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+}
+
+.frame151 {
+    width: 141px;
+    height: 116.53179168701172px;
+    top: calc(251.1px - 118.36px);
+    left: 54.375px;
+    padding: 5.531791687011719px 0px 0px 0px;
+    position: relative;
+}
+
+.frame150 {
+    position: absolute;
+    width: Hug (141px);
+    height: Hug (111px);
+    top: 5.53179931640625px;
+    gap: 5px;
+}
+
+.frame150>ul>li {
+    width: 141px;
+    height: 24px;
+    /* font-family: Open Sans; */
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    list-style: none;
+    margin-left: -50px;
+}
+
+.group210 {
+    position: absolute;
+    width: 96px;
+    height: 24px;
+    top: 382.636474609375px;
+    left: 22px;
+    /* border: 1px solid salmon; */
+}
+
+.settingicon {
+    width: 20px;
+    height: 20px;
+
+    position: relative;
+}
+
+.settingname {
+    position: absolute;
+    width: 66px;
+    height: 24px;
+    top: 2px;
+    left: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+}
