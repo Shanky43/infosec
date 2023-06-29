@@ -53,16 +53,23 @@
     margin: auto;
 }
 
-.btn1>button {
+.btn2>button {
     border: none;
     border-radius: 10px;
-    width: 100%;
+    width: auto;
+    margin: auto;
 }
 
-.btn1>button>span {
+.btn2>button>span {
     text-align: right;
 }
 
+.btn2 {
+    text-align: right;
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
+    gap: 10px;
+}
 
 
 @media (max-width: 1200px) {

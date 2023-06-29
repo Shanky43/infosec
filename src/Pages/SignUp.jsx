@@ -55,7 +55,7 @@ const SignUp = () => {
                 <div className="invalid-feedback">Invalid email id </div>
                 <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
               </div>
-              <div className="mb-5 was-validated">
+              <div className="mb-4 was-validated">
                 <label htmlFor="password" className="form-label">Password</label>
                 <input
                   type="password"
@@ -78,7 +78,7 @@ const SignUp = () => {
                 <button type="button" className='p-2 mb-3'> <BsFacebook size={25} style={{ color: "#0a87ed" }} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with FaceBook</span></button>
               </div>
             </div>
-            <div style={{ textAlign: "center", color: "gray" }}>Already have an account? <span style={{ color: "#5460fb" }} className='fw-semibold px-3' ><Link to="/login" className='text-decoration-none'>Sign In</Link></span></div>
+            <div style={{ textAlign: "center", color: "gray" }}>Already have an account? <span style={{ color: "#5460fb" }} className='fw-semibold px-3' ><Link to="/login" className='text-decoration-none'>Login here.</Link></span></div>
 
           </div>
         </div>

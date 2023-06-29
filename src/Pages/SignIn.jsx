@@ -64,17 +64,17 @@ const SignIn = () => {
                                 />
                                 <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
                             </div>
-                            <button type="submit" className="btn mb-3">Sign In</button>
+                            <button type="submit" className="btn mb-3">Login</button>
                         </form>
 
-                        <div className='btn1 mt-3'>
-                            <button type="button" className='p-2 mb-3'> <FcGoogle size={25} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with Google</span></button>
-                            <button type="button" className='p-2 mb-3'> <FaTwitter size={25} style={{ color: "#499eda" }} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with Twitter</span></button>
-                            <button type="button" className='p-2 mb-3'> <BsFacebook size={25} style={{ color: "#0a87ed" }} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with FaceBook</span></button>
+                        <div className='btn2 mt-3 mb-3'>
+                            <button type="button" className='p-2 mb-3'> <FcGoogle size={25} /></button>
+                            <button type="button" className='p-2 mb-3'> <FaTwitter size={25} style={{ color: "#499eda" }} /> </button>
+                            <button type="button" className='p-2 mb-3'> <BsFacebook size={25} style={{ color: "#0a87ed" }} /> </button>
                         </div>
                     </div>
 
-                    <div style={{ textAlign: "center", color: "gray" }}>You don't have an account yet? <span style={{ color: "#5460fb" }} className='fw-semibold px-3' ><Link to="/register" className='text-decoration-none'>Sign Up</Link></span></div>
+                    <div style={{ textAlign: "center", color: "gray" }}>You don't have an account yet? <span style={{ color: "#5460fb" }} className='fw-semibold px-3' ><Link to="/register" className='text-decoration-none'>Register</Link></span></div>
 
                 </div>
             </div>
