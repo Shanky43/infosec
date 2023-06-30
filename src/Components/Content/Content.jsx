@@ -38,7 +38,7 @@ const Content = () => {
                         <div
                             className={`tabv1 ${activeTab === 'tabv1' ? 'active' : ''}`}
                             onClick={() => handleTabClick('tabv1')}
-                           
+
                         >
                             <div className="frame27">
                                 <p className="tab1name">Update profile</p>
@@ -78,7 +78,7 @@ const Content = () => {
                         </div>
                     </div>
                     <hr className='mt-0' style={{ border: "1px solid #3BA3DD" }} />
-                    <div className="tabscontent">{renderTabContent()}</div>
+                    {activeTab !== "tabv5" ? <div className="tabscontent">{renderTabContent()}</div> : <div className="tabscontent" style={{ backgroundColor: "white" }}>{renderTabContent()}</div>}
                 </div>
 
             </div>

@@ -1,8 +1,14 @@
 import React from 'react'
+import "./tabv5.css"
 
 const Tabv5 = () => {
     return (
-        <div>Tabv5</div>
+        <div className="mainTab5">
+            <div className='tab5'>
+                .security
+
+            </div>
+        </div>
     )
 }
 

@@ -55,8 +55,21 @@ const Tabv2 = () => {
                 </div>
 
                 {/* Number of employee section start here */}
-                
+                <div className="EmployeeNumberSection">
+                    <div className="employeeNumbers">
+                        <p>Number of Employes</p>
+                    </div>
+                    <div className="numberOfEmployees">
+                        <p>{"200"}+</p>
+                    </div>
+                </div>
 
+                {/* edit button for company section start here */}
+                <div className="CompanyDetailsEditButton">
+                    <div className="Edit_button">
+                        <p>Edit</p>
+                    </div>
+                </div>
             </div>
 
         </div>

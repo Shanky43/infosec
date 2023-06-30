@@ -1,0 +1,178 @@
+.tab3 {
+    height: 420px;
+}
+
+.frame163 {
+    width: 586px;
+    height: 562px;
+    /* border: 1px solid red; */
+}
+
+.contactPersonName {
+    width: 426px;
+    height: 27.218935012817383px;
+    margin-top: 67px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.ContactPerson {
+    width: 211px;
+    height: 27.218935012817383px;
+    /* border: 1px solid black; */
+}
+
+.ContactPerson>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userContactName {
+    /* border: 1px solid black; */
+    width: 137px;
+    height: 27.218935012817383px;
+}
+
+.userContactName>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.personContactNumber {
+    width: 381px;
+    height: 27.218935012817383px;
+    margin-top: 70.78px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ContactNumber {
+    width: 161px;
+    height: 27.218935012817383px;
+}
+
+.ContactNumber>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userContactNumber {
+    width: 92px;
+    height: 21.775148391723633px;
+}
+
+.userContactNumber>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.ContactEmailAdress {
+    width: 432px;
+    height: 27.218935012817383px;
+    margin-top: 70.78px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.EmailAdress {
+    width: 137px;
+    height: 27.218935012817383px;
+}
+
+.EmailAdress>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userEmailAddress {
+    width: 143px;
+    height: 20px;
+}
+
+.userEmailAddress>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.ContactDesignationSection {
+    margin-top: 70.78px;
+    width: 403px;
+    height: 27.218935012817383px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ContactDesignation {
+    width: 116px;
+    height: 27.218935012817383px;
+}
+
+.ContactDesignation>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userContactDesignation {
+    width: auto;
+    height: 21.775148391723633px;
+}
+
+.userContactDesignation>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.editContactDetails {
+    width: 133px;
+    height: 42px;
+    margin-top: 50px;
+    margin-left: 461px;
+    padding: 12px 20px 12px 20px;
+    border-radius: 4px;
+    border: 1px;
+    gap: 10px;
+    background-color: #133D7A;
+    cursor: pointer;
+}
+
+.contactEdit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -4px;
+}
+
+.contactEdit>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: white;
+}
