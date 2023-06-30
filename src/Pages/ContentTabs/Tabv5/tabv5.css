@@ -7,3 +7,83 @@
     gap: 10px;
     background-color: #E6F7FF80;
 }
+
+.securitySection {
+    width: 395px;
+    height: 95px;
+    /* border: 1px solid red; */
+
+}
+
+.updatePassword {
+    width: 395px;
+    height: 24px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.password {
+    width: 94px;
+    height: 20px;
+
+}
+
+.password>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.updateButton {
+    width: 53px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.updateButton>p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #1676F3;
+}
+
+.towStepVerification {
+    margin-top: 47px;
+    display: flex;
+    justify-content: space-between;
+    width: 388px;
+    height: 24px;
+}
+
+.varification {
+    width: 176px;
+    height: 20px;
+}
+
+.varification>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.setUp {
+    width: 46px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.setUp>p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #1676F3;
+}

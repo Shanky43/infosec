@@ -7,7 +7,7 @@ import Tabv4 from '../../Pages/ContentTabs/Tabv4/Tabv4';
 import Tabv5 from '../../Pages/ContentTabs/Tabv5/Tabv5';
 
 const Content = () => {
-    const [activeTab, setActiveTab] = useState('tabv2');
+    const [activeTab, setActiveTab] = useState('tabv5');
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
@@ -77,6 +77,8 @@ const Content = () => {
                             </div>
                         </div>
                     </div>
+
+                    
                     <hr className='mt-0' style={{ border: "1px solid #3BA3DD" }} />
                     {activeTab !== "tabv5" ? <div className="tabscontent">{renderTabContent()}</div> : <div className="tabscontent" style={{ backgroundColor: "white" }}>{renderTabContent()}</div>}
                 </div>
