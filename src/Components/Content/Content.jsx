@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './content.css';
-import Tabv1 from '../../Pages/ContentTabs/Tabv1';
-import Tabv2 from '../../Pages/ContentTabs/Tabv2';
-import Tabv3 from '../../Pages/ContentTabs/Tabv3';
-import Tabv4 from '../../Pages/ContentTabs/Tabv4';
-import Tabv5 from '../../Pages/ContentTabs/Tabv5';
+import Tabv1 from '../../Pages/ContentTabs/Tabv1/Tabv1';
+import Tabv2 from '../../Pages/ContentTabs/Tabv2/Tabv2';
+import Tabv3 from '../../Pages/ContentTabs/Tabv3/Tabv3';
+import Tabv4 from '../../Pages/ContentTabs/Tabv4/Tabv4';
+import Tabv5 from '../../Pages/ContentTabs/Tabv5/Tabv5';
 
 const Content = () => {
-    const [activeTab, setActiveTab] = useState('tabv1');
+    const [activeTab, setActiveTab] = useState('tabv2');
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
@@ -31,13 +31,14 @@ const Content = () => {
     };
 
     return (
-        <div className="main-content-center">
+        <div className="main-content-center ">
             <div className="content-center">
                 <div className="tab-organism">
                     <div className="frame29">
                         <div
                             className={`tabv1 ${activeTab === 'tabv1' ? 'active' : ''}`}
                             onClick={() => handleTabClick('tabv1')}
+                           
                         >
                             <div className="frame27">
                                 <p className="tab1name">Update profile</p>
@@ -48,15 +49,15 @@ const Content = () => {
                             onClick={() => handleTabClick('tabv2')}
                         >
                             <div className="frame31">
-                                <p className="tab2name">Company details</p>
+                                <p className="tab2name">Company Details</p>
                             </div>
                         </div>
                         <div
                             className={`tabv3 ${activeTab === 'tabv3' ? 'active' : ''}`}
                             onClick={() => handleTabClick('tabv3')}
                         >
-                            <div className="frame31">
-                                <p className="tab2name">Company details</p>
+                            <div className="frame31-0">
+                                <p className="tab2name">Contact Details</p>
                             </div>
                         </div>
                         <div
@@ -76,8 +77,10 @@ const Content = () => {
                             </div>
                         </div>
                     </div>
+                    <hr className='mt-0' style={{ border: "1px solid #3BA3DD" }} />
                     <div className="tabscontent">{renderTabContent()}</div>
                 </div>
+
             </div>
         </div>
     );

@@ -1,0 +1,532 @@
+.tabv1section {
+    height: 845px;
+}
+
+.group165,
+.group166,
+.group167,
+.group168,
+.group169,
+.group170,
+.group171,
+.group172 {
+    width: 500px;
+    height: 24px;
+    border-radius: 4px;
+    /* border: 1px solid #1676F3; */
+}
+
+.group166,
+.group167,
+.group168,
+.group169,
+.group170,
+.group171,
+.group172 {
+    margin-top: 59.63px;
+}
+
+.group165textandicon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fullnameSection {
+    width: 258px;
+    height: 20px;
+    top: 12px;
+    left: 10px;
+    /* border: 1px solid red; */
+    display: flex;
+}
+
+.fullname {
+    width: 114px;
+    height: 20px;
+    top: 12px;
+    left: 10px;
+}
+
+.fullname>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.usernameSection {
+    width: 134px;
+    height: 20px;
+    top: 12px;
+    left: 134px;
+}
+
+.usernameSection>p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.Editsection {
+    width: 42px;
+    height: 24px;
+    top: 10px;
+    left: 468px;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit {
+    width: 32px;
+    height: 24px;
+    /* border: 1px solid red; */
+}
+
+.edit>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #1676F3;
+}
+
+
+
+.group68 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.designationSection {
+    display: flex;
+
+}
+
+.usersDesignation {
+    width: auto;
+    height: 20px;
+    top: 95.625px;
+    left: 147px;
+
+}
+
+.usersDesignation>p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.designation {
+    width: 127px;
+    height: 20px;
+    top: 95.625px;
+    left: 10px;
+    /* border: 1px solid red; */
+}
+
+.designation>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.emailSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.emailAddress {
+    display: flex;
+
+}
+
+.email {
+    width: 147px;
+    height: 20px;
+    top: 179.25px;
+    left: 10px;
+}
+
+.email>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userEmail {
+    width: 190px;
+    height: 20px;
+    top: 179.25px;
+    left: 167px;
+}
+
+
+.userEmail>p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.DOBSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.DOBaddress {
+    display: flex;
+    width: 252px;
+    height: 20px;
+    top: 262.875px;
+    left: 10px;
+
+}
+
+.DOB {
+    width: 135px;
+    height: 20px;
+    top: 262.875px;
+    left: 10px;
+}
+
+.DOB>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.userDOB {
+    width: 107px;
+    height: 20px;
+    top: 262.875px;
+    left: 155px;
+}
+
+.userDOB>p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.ContactNumberSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ContactSection {
+    display: flex;
+}
+
+.Contact {
+    width: 171px;
+    height: 20px;
+    top: 346.5px;
+    left: 10px;
+}
+
+.Contact>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userContact {
+    width: 126px;
+    height: 20px;
+    top: 346.5px;
+    left: 191px;
+}
+
+.userContact>p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.citySection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cityAddress {
+    display: flex;
+
+}
+
+.city {
+    width: 48px;
+    height: 20px;
+    top: 430.125px;
+    left: 10px;
+}
+
+.city>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userCity {
+    width: 48px;
+    height: 20px;
+    top: 430.125px;
+    left: 68px;
+
+}
+
+.userCity>p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.ProfilesectionWithEdit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProfileSection {
+    display: flex;
+}
+
+.Profile {
+    width: 137px;
+    height: 20px;
+    top: 515.5px;
+    left: 10px;
+}
+
+.Profile>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.UpdateSection {
+    width: 70px;
+    height: 24px;
+    top: 511.75px;
+    left: 451px;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update {
+    width: 60px;
+    height: 24px;
+}
+
+.update>p {
+    color: #1676F3;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.socialMedia {
+    width: 121px;
+    height: 20px;
+}
+
+.socialMedia>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.socialMediaLinks {
+    width: 420px;
+    height: 160px;
+    border-radius: 4px;
+    /* border: 1px solid #1676F3; */
+}
+
+.socialMediaLinks {
+    margin-top: 59.63px;
+}
+
+.group85,
+.group86,
+.group87,
+.group88,
+.group89 {
+    width: 420px;
+    height: 24px;
+    top: 811px;
+    left: 10px;
+    border-radius: 4px;
+    /* border: 1px solid #1676F3; */
+    display: flex;
+}
+
+.group86,
+.group87,
+.group88,
+.group89 {
+    margin-top: 10px;
+}
+
+.allSocialMediaLinks {
+    margin-left: 9px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.SocialMediaSection {
+    width: 64px;
+    height: 16px;
+    top: 679px;
+    left: 10px;
+}
+
+.SocialMediaSection>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.semiCol {
+    margin-left: 30px;
+    width: 5px;
+    height: 16px;
+    top: 679px;
+    left: 104px;
+}
+
+.semiCol>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.editbutton {
+    margin-left: 87px;
+    cursor: pointer;
+}
+
+.editbutton>p {
+    color: #1676F3;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.links {
+    width: 192px;
+    height: 16px;
+    top: 679px;
+    left: 118px;
+}
+
+.links>p {
+    color: #1676F3CC;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.options {
+    width: 250px;
+    height: 42.41px;
+    top: 1031px;
+    left: 781px;
+    gap: 16px;
+    margin-top: 40px;
+    margin-left: 356px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cancelSection {
+    width: 117px;
+    height: 42.41px;
+    padding: 8px 20px 12px 20px;
+    border-radius: 4px;
+    border: 1px solid #00000033;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cancelbutton {
+    width: 54px;
+    height: 24px;
+}
+
+.cancelbutton>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.saveSection {
+    width: 117px;
+    height: 42.41px;
+    padding: 8px 20px 12px 20px;
+    border-radius: 4px;
+    border: 1px;
+    gap: 10px;
+    background-color: #133D7A;
+    display: flex;
+    justify-content: center;
+}
+
+.savebutton {
+    width: 38px;
+    height: 24px;
+}
+
+.savebutton>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: white;
+    cursor: pointer;
+}
