@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './updateuserform.css';
 
-const UpdateUserForm = () => {
+const UpdateUserForm = ({ setWhichTab }) => {
     const [fullName, setFullName] = useState('');
     const [designation, setDesignation] = useState('');
     const [email, setEmail] = useState('');
@@ -16,13 +16,13 @@ const UpdateUserForm = () => {
         Instagram: '',
         Other: ''
     });
-    const [showEdit, setShowEdit] = useState(true);
+
     const handleSaveButton = () => {
-        localStorage.setItem("tabSection", true)
+
     }
-
-
-
+    const handleCancelButton = () => {
+        setWhichTab(false)
+    }
     const SocialMedia = ({ media, links }) => {
         const handleLinkChange = (e) => {
             setSocialMediaLinks((prevLinks) => ({
@@ -169,22 +169,21 @@ const UpdateUserForm = () => {
                 </div>
             </div>
 
-            {showEdit === true ? (
-                <div>
-                    <div className="Updateoptions">
-                        <div className="UpdatecancelSection" onClick={() => setShowEdit(false)}>
-                            <div className="Updatecancelbutton">
-                                <p>Cancel</p>
-                            </div>
+            <div>
+                <div className="Updateoptions">
+                    <div className="UpdatecancelSection" onClick={handleCancelButton}>
+                        <div className="Updatecancelbutton">
+                            <p>Cancel</p>
                         </div>
-                        <div className="UpdatesaveSection">
-                            <div className="Updatesavebutton" onClick={handleSaveButton}>
-                                <p>Save</p>
-                            </div>
+                    </div>
+                    <div className="UpdatesaveSection">
+                        <div className="Updatesavebutton" onClick={handleSaveButton}>
+                            <p>Save</p>
                         </div>
                     </div>
                 </div>
-            ) : null}
+            </div>
+
         </div>
     );
 };

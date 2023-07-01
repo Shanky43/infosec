@@ -14,14 +14,6 @@ const Content = () => {
     const [whichTab, setWhichTab] = useState(false)
 
 
-    useEffect(() => {
-        let tab = localStorage.getItem('tabSection')
-
-        setWhichTab(tab)
-
-    }, [])
-
-
 
     useEffect(() => {
         const storedTab = localStorage.getItem('activeTab');
@@ -37,9 +29,9 @@ const Content = () => {
         switch (activeTab) {
             case 'tabv1':
                 if (whichTab) {
-                    return <UpdateUserForm />
+                    return <UpdateUserForm setWhichTab={setWhichTab} />
                 } else {
-                    return <Tabv1 />;
+                    return <Tabv1 setWhichTab={setWhichTab} />;
                 }
             case 'tabv2':
                 return <Tabv2 />;

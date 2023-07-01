@@ -3,7 +3,8 @@ import "./tabv1.css"
 
 
 function SocialMedia(props) {
-    const { media, links } = props
+    const { media, links, handleShowEdit } = props;
+
     return (
         <>
             <div className="SocialMediaSection">
@@ -17,23 +18,18 @@ function SocialMedia(props) {
                     <p>{links}</p>
                 </div>
                 <div className="editSection">
-                    <div className="editbutton">
+                    <div className="editbutton" onClick={handleShowEdit}>
                         <p>Edit</p>
                     </div>
                 </div>
             </div>
-
         </>
-    )
+    );
 }
-
-const Tabv1 = () => {
-
+const Tabv1 = ({ setWhichTab }) => {
     const handleShowEdit = () => {
-        localStorage.setItem("tabSection", true)
+        setWhichTab(true)
     }
-
-
     return (
 
         <div className='tabv1section '>
@@ -48,7 +44,7 @@ const Tabv1 = () => {
                         </div>
                     </div>
                     <div className="Editsection">
-                        <div className="edit" onClick={() => handleShowEdit("editUserName")}>
+                        <div className="edit" onClick={handleShowEdit}>
                             <p>Edit</p>
                         </div>
                     </div>
@@ -66,7 +62,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => handleShowEdit("editDesignation")}>
+                            <div className="edit" onClick={handleShowEdit}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -85,7 +81,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => handleShowEdit("editEmail")}>
+                            <div className="edit" onClick={handleShowEdit}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -105,7 +101,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => handleShowEdit("editDOB")}>
+                            <div className="edit" onClick={handleShowEdit}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -181,19 +177,39 @@ const Tabv1 = () => {
 
             <div className="socialMediaLinks">
                 <div className="group85">
-                    <SocialMedia media={"LinkedIn"} links={"https://www.linkedin.com"} />
+                    <SocialMedia
+                        media="LinkedIn"
+                        links="https://www.linkedin.com"
+                        handleShowEdit={handleShowEdit}
+                    />
                 </div>
                 <div className="group86">
-                    <SocialMedia media={"Twitter"} links={"https://twitter.com"} />
+                    <SocialMedia
+                        media="Twitter"
+                        links="https://twitter.com"
+                        handleShowEdit={handleShowEdit}
+                    />
                 </div>
                 <div className="group87">
-                    <SocialMedia media={"Facebook"} links={"https://www.facebook.com"} />
+                    <SocialMedia
+                        media="Facebook"
+                        links="https://www.facebook.com"
+                        handleShowEdit={handleShowEdit}
+                    />
                 </div>
                 <div className="group88">
-                    <SocialMedia media={"Instagram"} links={"https://www.instagram.com"} />
+                    <SocialMedia
+                        media="Instagram"
+                        links="https://www.instagram.com"
+                        handleShowEdit={handleShowEdit}
+                    />
                 </div>
                 <div className="group89">
-                    <SocialMedia media={"Other"} links={"https://www.behance.net"} />
+                    <SocialMedia
+                        media="Other"
+                        links="https://www.behance.net"
+                        handleShowEdit={handleShowEdit}
+                    />
                 </div>
             </div>
 
