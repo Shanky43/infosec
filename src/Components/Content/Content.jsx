@@ -7,8 +7,22 @@ import Tabv4 from '../../Pages/ContentTabs/Tabv4/Tabv4';
 import Tabv5 from '../../Pages/ContentTabs/Tabv5/Tabv5';
 import ChangePasswordTab from '../../Pages/ContentTabs/ChangePassowrdTab/ChangePasswordTab';
 
+import UpdateUserForm from '../../Pages/UpdateUserForm/UpdateUserForm';
+
 const Content = () => {
     const [activeTab, setActiveTab] = useState('tabv5');
+    const [whichTab, setWhichTab] = useState(false)
+
+
+    useEffect(() => {
+        let tab = localStorage.getItem('tabSection')
+
+        setWhichTab(tab)
+
+    }, [])
+
+
+
     useEffect(() => {
         const storedTab = localStorage.getItem('activeTab');
         setActiveTab(storedTab || 'tabv5');
@@ -18,11 +32,15 @@ const Content = () => {
         setActiveTab(tab);
         localStorage.setItem('activeTab', tab);
     };
-    
+
     const renderTabContent = () => {
         switch (activeTab) {
             case 'tabv1':
-                return <Tabv1 />;
+                if (whichTab) {
+                    return <UpdateUserForm />
+                } else {
+                    return <Tabv1 />;
+                }
             case 'tabv2':
                 return <Tabv2 />;
             case 'tabv3':
@@ -42,12 +60,11 @@ const Content = () => {
         <div className="main-content-center ">
             <div className="content-center">
                 <div className="tab-organism">
-                    {
-                        activeTab !== "tabv6" ? <div className="frame29">
+                    {activeTab !== 'tabv6' ? (
+                        <div className="frame29">
                             <div
                                 className={`tabv1 ${activeTab === 'tabv1' ? 'active' : ''}`}
                                 onClick={() => handleTabClick('tabv1')}
-
                             >
                                 <div className="frame27">
                                     <p className="tab1name">Update profile</p>
@@ -85,7 +102,9 @@ const Content = () => {
                                     <p className="tab5name">Security</p>
                                 </div>
                             </div>
-                        </div> : <div
+                        </div>
+                    ) : (
+                        <div
                             className={`tabv6 ${activeTab === 'tabv6' ? 'active' : ''}`}
                             onClick={() => handleTabClick('tabv6')}
                         >
@@ -93,13 +112,17 @@ const Content = () => {
                                 <p className="tab5name">Change Password</p>
                             </div>
                         </div>
-                    }
+                    )}
 
-
-                    <hr className='mt-0' style={{ border: "1px solid #3BA3DD" }} />
-                    {activeTab !== "tabv5" ? <div className="tabscontent">{renderTabContent()}</div> : <div className="tabscontent" style={{ backgroundColor: "white" }}>{renderTabContent()}</div>}
+                    <hr className="mt-0" style={{ border: '1px solid #3BA3DD' }} />
+                    {activeTab !== 'tabv5' ? (
+                        <div className="tabscontent">{renderTabContent()}</div>
+                    ) : (
+                        <div className="tabscontent" style={{ backgroundColor: 'white' }}>
+                            {renderTabContent()}
+                        </div>
+                    )}
                 </div>
-
             </div>
         </div>
     );

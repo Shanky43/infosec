@@ -466,67 +466,120 @@
     text-align: left;
 }
 
-.options {
-    width: 250px;
-    height: 42.41px;
-    top: 1031px;
-    left: 781px;
-    gap: 16px;
-    margin-top: 40px;
-    margin-left: 356px;
+.socialMedia {
+    width: 121px;
+    height: 20px;
+}
+
+.socialMedia>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.socialMediaLinks {
+    width: 420px;
+    height: 160px;
+    border-radius: 4px;
+    /* border: 1px solid #1676F3; */
+}
+
+.socialMediaLinks {
+    margin-top: 59.63px;
+}
+
+.group85,
+.group86,
+.group87,
+.group88,
+.group89 {
+    width: 420px;
+    height: 24px;
+    top: 811px;
+    left: 10px;
+    border-radius: 4px;
+    /* border: 1px solid #1676F3; */
+    display: flex;
+}
+
+.group86,
+.group87,
+.group88,
+.group89 {
+    margin-top: 10px;
+}
+
+.allSocialMediaLinks {
+    margin-left: 9px;
     display: flex;
     justify-content: space-between;
+}
+
+.SocialMediaSection {
+    width: 64px;
+    height: 16px;
+    top: 679px;
+    left: 10px;
+}
+
+.SocialMediaSection>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
 
 }
 
-.cancelSection {
-    width: 117px;
-    height: 42.41px;
-    padding: 8px 20px 12px 20px;
-    border-radius: 4px;
-    border: 1px solid #00000033;
-    gap: 10px;
-    display: flex;
-    justify-content: center;
+.semiCol {
+    margin-left: 30px;
+    width: 5px;
+    height: 16px;
+    top: 679px;
+    left: 104px;
+}
+
+.semiCol>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.editbutton {
+    margin-left: 87px;
     cursor: pointer;
 }
 
-.cancelbutton {
-    width: 54px;
-    height: 24px;
-}
-
-.cancelbutton>p {
-    font-size: 16px;
+.editbutton>p {
+    color: #1676F3;
+    font-size: 14px;
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0.5px;
     text-align: left;
 }
 
-.saveSection {
-    width: 117px;
-    height: 42.41px;
-    padding: 8px 20px 12px 20px;
-    border-radius: 4px;
-    border: 1px;
-    gap: 10px;
-    background-color: #133D7A;
-    display: flex;
-    justify-content: center;
+.links {
+    width: 192px;
+    height: 16px;
+    top: 679px;
+    left: 118px;
 }
 
-.savebutton {
-    width: 38px;
-    height: 24px;
-}
-
-.savebutton>p {
+.links>p {
+    color: #1676F3CC;
     font-size: 16px;
     font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0.5px;
+    line-height: 16px;
+    letter-spacing: 0em;
     text-align: left;
-    color: white;
-    cursor: pointer;
+}
+
+input {
+    background-color: #E6F7FF80;
+
 }

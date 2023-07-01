@@ -1,0 +1,329 @@
+.UpdateUserFormSection {
+    box-sizing: border-box;
+}
+
+.Section_1 {
+    margin-top: 10px;
+
+    width: 567px;
+    height: 46px;
+    border: 1px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.fieldMessage {
+    width: 161px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.fieldMessage>p {
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.fieldSemiCol {
+    margin-top: 8px;
+    width: 6px;
+    height: 20px;
+    top: 23px;
+    left: 195px;
+}
+
+.fieldSemiCol>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.userInputSection {
+    width: 248px;
+    height: 46px;
+    top: 10px;
+    left: 248px;
+    border-radius: 3px;
+    border: 1px solid #1C375A4D;
+
+}
+
+.fieldSaveSection {
+    margin-top: 8px;
+    width: 43px;
+    height: 24px;
+    top: 21px;
+    left: 545px;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+}
+
+.FieldSaveButton {
+    width: 33px;
+    height: 24px;
+}
+
+.FieldSaveButton>p {
+    color: #1676F3;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    cursor: pointer;
+
+}
+
+.userInputSection:active {
+    outline: 0px solid gray;
+}
+
+.field-designation,
+.field-dob,
+.field-contactnumber,
+.field-city,
+.field-profilepicture {
+    margin-top: 38px;
+}
+
+.UpdateSocialMediaLinks {
+    margin-top: 38px;
+    width: 420px;
+    height: 160px;
+    border-radius: 4px;
+    margin-left: 21px;
+    /* border: 1px solid #1676F3; */
+}
+
+.socialMediaLinks {
+    margin-top: 59.63px;
+}
+
+.UpdateLinkedIn,
+.UpdateTwitter,
+.UpdateFacebook,
+.UpdateInstagram,
+.UpdateOther {
+    width: 420px;
+    height: 24px;
+    top: 811px;
+    left: 10px;
+    border-radius: 4px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.UpdateTwitter,
+.UpdateFacebook,
+.UpdateInstagram,
+.UpdateOther {
+    margin-top: 10px;
+}
+
+.UpdateInputSection {
+    margin-left: 17px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.UpdateSocialMediaSection {
+
+    width: 64px;
+    height: 16px;
+
+
+}
+
+.UpdateSocialMediaSection>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.socialMedia_1 {
+    width: 121px;
+    height: 20px;
+}
+
+.socialMedia_1>p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.UpdateSocialMediaSemiCol {
+    margin-left: 30px;
+    width: 5px;
+    height: 16px;
+    top: 679px;
+    left: 104px;
+}
+
+.UpdateSocialMediaSemiCol>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.editbutton {
+    margin-left: 87px;
+    cursor: pointer;
+}
+
+.editbutton>p {
+    color: #1676F3;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.Updatelinks {
+    width: 192px;
+    height: 16px;
+    top: 679px;
+    left: 118px;
+}
+
+.Updatelinks>p {
+    color: #1676F3CC;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.UpdatedFieldSocialMedia {
+    width: 500px;
+    height: 24px;
+    border-radius: 4px;
+    margin-top: 38px;
+    margin-left: 21px;
+}
+
+
+
+.UpdateSaveSection {
+    margin-left: 29px;
+    width: 43px;
+    height: 24px;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+}
+
+.UpdateSaveField {
+    width: 33px;
+    height: 24px;
+}
+
+.UpdateSaveField>p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #1676F3;
+}
+
+.updateWithSemicol {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.updateSocialMediaInput {
+    width: 200px;
+    height: 36px;
+    border-radius: 3px;
+
+    border: 1px solid #1C375A4D;
+}
+
+.UpdtSocSection {
+    margin-top: 14px;
+}
+
+.Updateoptions {
+    width: 250px;
+    height: 2.41px;
+    gap: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 350px;
+    margin-top: 70px;
+
+}
+
+.UpdatecancelSection {
+    width: 117px;
+    height: 42.41px;
+    padding: 12px 20px 12px 20px;
+    border-radius: 4px;
+    border: 1px solid #00000033;
+    gap: 10px;
+    margin-top: 20px;
+
+}
+
+.Updatecancelbutton {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Updatecancelbutton>p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin-top: -3px;
+}
+
+.UpdatesaveSection {
+    width: 117px;
+    height: 42.41px;
+    padding: 12px 20px 12px 20px;
+    border-radius: 4px;
+    border: 1px;
+    gap: 10px;
+    background-color: #133D7A;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.Updatesavebutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Updatesavebutton>p {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: white;
+    margin-top: -3px;
+}

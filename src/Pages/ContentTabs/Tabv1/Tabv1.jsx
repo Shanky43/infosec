@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./tabv1.css"
+
 
 function SocialMedia(props) {
     const { media, links } = props
@@ -27,7 +28,10 @@ function SocialMedia(props) {
 }
 
 const Tabv1 = () => {
-    const [showEdit, setShowEdit] = useState(false)
+
+    const handleShowEdit = () => {
+        localStorage.setItem("tabSection", true)
+    }
 
 
     return (
@@ -44,7 +48,7 @@ const Tabv1 = () => {
                         </div>
                     </div>
                     <div className="Editsection">
-                        <div className="edit" onClick={() => setShowEdit(true)}>
+                        <div className="edit" onClick={() => handleShowEdit("editUserName")}>
                             <p>Edit</p>
                         </div>
                     </div>
@@ -62,7 +66,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => setShowEdit(true)}>
+                            <div className="edit" onClick={() => handleShowEdit("editDesignation")}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -81,7 +85,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => setShowEdit(true)}>
+                            <div className="edit" onClick={() => handleShowEdit("editEmail")}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -101,7 +105,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => setShowEdit(true)}>
+                            <div className="edit" onClick={() => handleShowEdit("editDOB")}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -122,7 +126,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => setShowEdit(true)}>
+                            <div className="edit" onClick={handleShowEdit}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -143,7 +147,7 @@ const Tabv1 = () => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={() => setShowEdit(true)}>
+                            <div className="edit" onClick={handleShowEdit}>
                                 <p>Edit</p>
                             </div>
                         </div>
@@ -161,7 +165,7 @@ const Tabv1 = () => {
 
                         </div>
                         <div className="UpdateSection">
-                            <div className="update" onClick={() => setShowEdit(true)}>
+                            <div className="update" onClick={handleShowEdit}>
                                 <p>Update</p>
                             </div>
                         </div>
@@ -193,20 +197,6 @@ const Tabv1 = () => {
                 </div>
             </div>
 
-            {showEdit === true ? <div>
-                <div className="options">
-                    <div className="cancelSection" onClick={() => setShowEdit(false)}>
-                        <div className="cancelbutton" >
-                            <p>Cancel</p>
-                        </div>
-                    </div>
-                    <div className="saveSection">
-                        <div className="savebutton">
-                            <p>Save</p>
-                        </div>
-                    </div>
-                </div>
-            </div> : null}
         </div>
 
     )
