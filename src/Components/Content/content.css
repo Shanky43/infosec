@@ -82,11 +82,24 @@
         linear-gradient(0deg, #F2F2F2, #F2F2F2);
 }
 
+.tabv6 {
+    width: 73px;
+    height: 40px;
+    padding: 4px 0px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+    border: 1px 1px 0px 1px;
+    /* border: 1px solid blue; */
+    cursor: pointer;
+    background: linear-gradient(0deg, #DBDBDB, #DBDBDB),
+        linear-gradient(0deg, #F2F2F2, #F2F2F2);
+}
+
 .tabv1.active,
 .tabv2.active,
 .tabv3.active,
 .tabv4.active,
-.tabv5.active {
+.tabv5.active,
+.tabv6.active {
     border-width: 1px 1px 0px 1px;
     border-style: solid;
     border-color: #3BA3DD;
@@ -180,6 +193,23 @@
     gap: 6px;
 }
 
+.frame31-3 {
+    width: 163px;
+    height: 40px;
+    padding: 11px 20px 11px 20px;
+    border-radius: 4px 4px 0px 0px;
+    border: 1px 1px 0px 1px;
+    gap: 6px;
+}
+
+.frame31-3>p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
 .tab5name {
     font-size: 14px;
     font-weight: 400;
@@ -210,4 +240,8 @@
 .tabv5.active>div>p {
     font-weight: 700;
     padding-left: 35px;
+}
+
+.tabv6.active>div>p {
+    font-weight: 700;
 }
