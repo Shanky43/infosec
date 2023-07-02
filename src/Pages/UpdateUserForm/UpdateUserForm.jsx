@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './updateuserform.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { patchInfosecData } from '../../Redux/InfosecData/action';
+
 
 const UpdateUserForm = ({ setWhichTab }) => {
     const [fullName, setFullName] = useState('');
@@ -17,131 +20,226 @@ const UpdateUserForm = ({ setWhichTab }) => {
         Other: ''
     });
 
+    const { userDetails } = useSelector((state) => ({
+        userDetails: state.InfosecReducer.infosecdata.infosecData,
+    }));
+    const dispatch = useDispatch()
     const handleSaveButton = () => {
-
-    }
-    const handleCancelButton = () => {
-        setWhichTab(false)
-    }
-    const SocialMedia = ({ media, links }) => {
-        const handleLinkChange = (e) => {
-            setSocialMediaLinks((prevLinks) => ({
-                ...prevLinks,
-                [media]: e.target.value
-            }));
+        const updatedData = {
+            fullName: fullName || userDetails[0].fullName,
+            designation: designation || userDetails[0].designation,
+            emailaddress: email || userDetails[0].emailaddress,
+            dob: dateOfBirth || userDetails[0].dob,
+            contactnumber: contactNumber || userDetails[0].contactnumber,
+            city: city || userDetails[0].city,
+            profilepicture: profilePicture || userDetails[0].profilepicture,
+            linkedin: socialMediaLinks.LinkedIn || userDetails[0].linkedin,
+            twitter: socialMediaLinks.Twitter || userDetails[0].twitter,
+            facebook: socialMediaLinks.Facebook || userDetails[0].facebook,
+            instagram: socialMediaLinks.Instagram || userDetails[0].instagram,
+            other: socialMediaLinks.Other || userDetails[0].other,
         };
 
+        updatedData.userId = userDetails[0].userId;
 
+        console.log(updatedData); // Do whatever you want with the updated data
+        let updateId = userDetails[0]._id;
 
-        return (
-            <>
-
-                <div className="updateWithSemicol">
-                    <div className="UpdateSocialMediaSection">
-                        <p>{media}</p>
-                    </div>
-                    <div className="UpdateSocialMediaSemiCol">
-                        <p>:</p>
-                    </div>
-                </div>
-                <div className="UpdateInputSection">
-                    <div className="Updatelinks">
-                        <input
-                            type="text"
-                            className="updateSocialMediaInput "
-                            value={links}
-                            onChange={handleLinkChange}
-                        />
-                    </div>
-
-                </div>
-                <div className="UpdateSaveSection">
-                    <div className="UpdateSaveField">
-                        <p>Save</p>
-                    </div>
-                </div>
-
-            </>
-        );
+        return dispatch(patchInfosecData(updateId, updatedData))
+            .then((res) => {
+                alert(res)
+                window.location.reload()
+                // Handle the response data here if needed
+            })
+            .catch((err) => {
+                alert(err)
+                window.location.reload()
+                // Handle the error here if needed
+            });
     };
 
-    const FieldGenerator = ({ message, value, onChange }) => {
-        return (
-            <div className="Section_1">
-                <div className="fieldMessage">
-                    <p>{message}</p>
-                </div>
-                <div className="fieldSemiCol">
-                    <p>:</p>
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        className="userInputSection"
-                        value={value}
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="fieldSaveSection">
-                    <div className="FieldSaveButton">
-                        <p>Save</p>
-                    </div>
-                </div>
-            </div>
-        );
+    const handleCancelButton = () => {
+        setWhichTab(false);
+    };
+
+    const handleInputChange = (stateSetter) => (e) => {
+        stateSetter(e.target.value);
+    };
+
+
+
+
+
+    const handleSocialMediaLinkChange = (media) => (e) => {
+        setSocialMediaLinks((prevLinks) => ({
+            ...prevLinks,
+            [media]: e.target.value
+        }));
     };
 
     return (
         <div className="UpdateUserFormSection">
             <div className="formSection-1">
-                <div className="full-name">
-                    <FieldGenerator
-                        message={"Full Name"}
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
-                    />
+                <div className="field-designation">
+                    <div className="Section_1">
+                        <div className="fieldMessage">
+                            <p>Full Name</p>
+                        </div>
+                        <div className="fieldSemiCol">
+                            <p>:</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="userInputSection"
+                                value={fullName}
+                                onChange={handleInputChange(setFullName)}
+                            />
+                        </div>
+                        <div className="fieldSaveSection">
+                            <div className="FieldSaveButton">
+                                <p>Save</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="field-designation">
-                    <FieldGenerator
-                        message={"Designation"}
-                        value={designation}
-                        onChange={(e) => setDesignation(e.target.value)}
-                    />
+                    <div className="Section_1">
+                        <div className="fieldMessage">
+                            <p>Designation</p>
+                        </div>
+                        <div className="fieldSemiCol">
+                            <p>:</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="userInputSection"
+                                value={designation}
+                                onChange={handleInputChange(setDesignation)}
+                            />
+                        </div>
+                        <div className="fieldSaveSection">
+                            <div className="FieldSaveButton">
+                                <p>Save</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="field-designation">
-                    <FieldGenerator
-                        message={"Email Address"}
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                    <div className="Section_1">
+                        <div className="fieldMessage">
+                            <p>Email Address</p>
+                        </div>
+                        <div className="fieldSemiCol">
+                            <p>:</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="userInputSection"
+                                value={email}
+                                onChange={handleInputChange(setEmail)}
+                            />
+                        </div>
+                        <div className="fieldSaveSection">
+                            <div className="FieldSaveButton">
+                                <p>Save</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="field-dob">
-                    <FieldGenerator
-                        message={"Date of Birth"}
-                        value={dateOfBirth}
-                        onChange={(e) => setDateOfBirth(e.target.value)}
-                    />
+                <div className="field-designation">
+                    <div className="Section_1">
+                        <div className="fieldMessage">
+                            <p>Date of Birth</p>
+                        </div>
+                        <div className="fieldSemiCol">
+                            <p>:</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="userInputSection"
+                                value={dateOfBirth}
+                                onChange={handleInputChange(setDateOfBirth)}
+                            />
+                        </div>
+                        <div className="fieldSaveSection">
+                            <div className="FieldSaveButton">
+                                <p>Save</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="field-contactnumber">
-                    <FieldGenerator
-                        message={"Contact Number"}
-                        value={contactNumber}
-                        onChange={(e) => setContactNumber(e.target.value)}
-                    />
+                <div className="field-designation">
+                    <div className="Section_1">
+                        <div className="fieldMessage">
+                            <p>Contact Number</p>
+                        </div>
+                        <div className="fieldSemiCol">
+                            <p>:</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="userInputSection"
+                                value={contactNumber}
+                                onChange={handleInputChange(setContactNumber)}
+                            />
+                        </div>
+                        <div className="fieldSaveSection">
+                            <div className="FieldSaveButton">
+                                <p>Save</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="field-city">
-                    <FieldGenerator
-                        message={"City"}
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                    />
+                <div className="field-designation">
+                    <div className="Section_1">
+                        <div className="fieldMessage">
+                            <p>City</p>
+                        </div>
+                        <div className="fieldSemiCol">
+                            <p>:</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="userInputSection"
+                                value={city}
+                                onChange={handleInputChange(setCity)}
+                            />
+                        </div>
+                        <div className="fieldSaveSection">
+                            <div className="FieldSaveButton">
+                                <p>Save</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="field-profilepicture">
-                    <FieldGenerator
-                        message={"Profile Picture"}
-                        value={profilePicture}
-                        onChange={(e) => setProfilePicture(e.target.value)}
-                    />
+                <div className="field-designation">
+                    <div className="Section_1">
+                        <div className="fieldMessage">
+                            <p>Profile Picture</p>
+                        </div>
+                        <div className="fieldSemiCol">
+                            <p>:</p>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="userInputSection"
+                                value={profilePicture}
+                                onChange={handleInputChange(setProfilePicture)}
+                            />
+                        </div>
+                        <div className="fieldSaveSection">
+                            <div className="FieldSaveButton">
+                                <p>Save</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -153,19 +251,129 @@ const UpdateUserForm = ({ setWhichTab }) => {
 
             <div className="UpdateSocialMediaLinks">
                 <div className="UpdateLinkedIn">
-                    <SocialMedia media={"LinkedIn"} links={socialMediaLinks.LinkedIn} />
+                    <div className="updateWithSemicol">
+                        <div className="UpdateSocialMediaSection">
+                            <p>LinkedIn</p>
+                        </div>
+                        <div className="UpdateSocialMediaSemiCol">
+                            <p>:</p>
+                        </div>
+                    </div>
+                    <div className="UpdateInputSection">
+                        <div className="Updatelinks">
+                            <input
+                                type="text"
+                                className="updateSocialMediaInput"
+                                value={socialMediaLinks.LinkedIn}
+                                onChange={handleSocialMediaLinkChange('LinkedIn')}
+                            />
+                        </div>
+                    </div>
+                    <div className="UpdateSaveSection">
+                        <div className="UpdateSaveField">
+                            <p>Save</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="UpdateTwitter">
-                    <SocialMedia media={"Twitter"} links={socialMediaLinks.Twitter} />
+                    <div className="updateWithSemicol">
+                        <div className="UpdateSocialMediaSection">
+                            <p>Twitter</p>
+                        </div>
+                        <div className="UpdateSocialMediaSemiCol">
+                            <p>:</p>
+                        </div>
+                    </div>
+                    <div className="UpdateInputSection">
+                        <div className="Updatelinks">
+                            <input
+                                type="text"
+                                className="updateSocialMediaInput"
+                                value={socialMediaLinks.Twitter}
+                                onChange={handleSocialMediaLinkChange('Twitter')}
+                            />
+                        </div>
+                    </div>
+                    <div className="UpdateSaveSection">
+                        <div className="UpdateSaveField">
+                            <p>Save</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="UpdateFacebook">
-                    <SocialMedia media={"Facebook"} links={socialMediaLinks.Facebook} />
+                    <div className="updateWithSemicol">
+                        <div className="UpdateSocialMediaSection">
+                            <p>Facebook</p>
+                        </div>
+                        <div className="UpdateSocialMediaSemiCol">
+                            <p>:</p>
+                        </div>
+                    </div>
+                    <div className="UpdateInputSection">
+                        <div className="Updatelinks">
+                            <input
+                                type="text"
+                                className="updateSocialMediaInput"
+                                value={socialMediaLinks.Facebook}
+                                onChange={handleSocialMediaLinkChange('Facebook')}
+                            />
+                        </div>
+                    </div>
+                    <div className="UpdateSaveSection">
+                        <div className="UpdateSaveField">
+                            <p>Save</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="UpdateInstagram">
-                    <SocialMedia media={"Instagram"} links={socialMediaLinks.Instagram} />
+                    <div className="updateWithSemicol">
+                        <div className="UpdateSocialMediaSection">
+                            <p>Instagram</p>
+                        </div>
+                        <div className="UpdateSocialMediaSemiCol">
+                            <p>:</p>
+                        </div>
+                    </div>
+                    <div className="UpdateInputSection">
+                        <div className="Updatelinks">
+                            <input
+                                type="text"
+                                className="updateSocialMediaInput"
+                                value={socialMediaLinks.Instagram}
+                                onChange={handleSocialMediaLinkChange('Instagram')}
+                            />
+                        </div>
+                    </div>
+                    <div className="UpdateSaveSection">
+                        <div className="UpdateSaveField">
+                            <p>Save</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="UpdateOther">
-                    <SocialMedia media={"Other"} links={socialMediaLinks.Other} />
+                    <div className="updateWithSemicol">
+                        <div className="UpdateSocialMediaSection">
+                            <p>Other</p>
+                        </div>
+                        <div className="UpdateSocialMediaSemiCol">
+                            <p>:</p>
+                        </div>
+                    </div>
+                    <div className="UpdateInputSection">
+                        <div className="Updatelinks">
+                            <input
+                                type="text"
+                                className="updateSocialMediaInput"
+                                value={socialMediaLinks.Other}
+                                onChange={handleSocialMediaLinkChange('Other')}
+                            />
+                        </div>
+                    </div>
+                    <div className="UpdateSaveSection">
+                        <div className="UpdateSaveField">
+                            <p>Save</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -183,7 +391,6 @@ const UpdateUserForm = ({ setWhichTab }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

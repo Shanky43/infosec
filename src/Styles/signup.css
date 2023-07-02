@@ -90,3 +90,22 @@
         padding: 0 10px;
     }
 }
+
+.toast {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    transition: opacity 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.toast-body {
+    flex: 1;
+}
+
+.text-bg-success {
+    background-color: #28a745;
+}
+
+.text-bg-danger {
+    background-color: #dc3545;
+}

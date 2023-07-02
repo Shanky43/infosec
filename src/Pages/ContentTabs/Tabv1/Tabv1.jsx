@@ -1,5 +1,7 @@
-import React from 'react'
-import "./tabv1.css"
+import React, { useEffect, useState } from 'react';
+import './tabv1.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getInfosecData } from '../../../Redux/InfosecData/action';
 
 
 function SocialMedia(props) {
@@ -26,13 +28,51 @@ function SocialMedia(props) {
         </>
     );
 }
-const Tabv1 = ({ setWhichTab }) => {
-    const handleShowEdit = () => {
-        setWhichTab(true)
-    }
-    return (
 
-        <div className='tabv1section '>
+const Tabv1 = ({ setWhichTab }) => {
+
+    const { userDetails } = useSelector((state) => ({
+        userDetails: state.InfosecReducer.infosecdata.infosecData,
+    }));
+    const [userDetail, setUserDetail] = useState("");
+    console.log(userDetails);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getInfosecData());
+    }, [dispatch]);
+
+    const handleShowEdit = () => {
+        setWhichTab(true);
+    };
+    useEffect(() => {
+        if (userDetails && userDetails.length > 0) {
+            setUserDetail(userDetails[0]);
+        } else {
+            // Set dummy data or default values when userDetails is empty
+            setUserDetail({
+                fullName: 'John Doe',
+                designation: 'Software Engineer',
+                emailaddress: 'johndoe@example.com',
+                dob: '1990-01-01',
+                contactnumber: '+1234567890',
+                city: 'New York',
+                linkedin: 'https://www.linkedin.com/johndoe',
+                twitter: 'https://www.twitter.com/johndoe',
+                facebook: 'https://www.facebook.com/johndoe',
+                instagram: 'https://www.instagram.com/johndoe',
+                other: 'https://www.example.com/johndoe',
+            });
+        }
+    }, [userDetails]);
+
+
+
+    // Destructure the userDetails array and extract the first element
+
+
+    return (
+        <div className="tabv1section">
             <div className="group165">
                 <div className="group165textandicon">
                     <div className="fullnameSection">
@@ -40,7 +80,7 @@ const Tabv1 = ({ setWhichTab }) => {
                             <p>Full Name :</p>
                         </div>
                         <div className="usernameSection">
-                            <p>{"Shankar"}</p>
+                            <p>{userDetail.fullName}</p>
                         </div>
                     </div>
                     <div className="Editsection">
@@ -58,7 +98,7 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Designation :</p>
                             </div>
                             <div className="usersDesignation">
-                                <p> {"Full stackweb developer"}</p>
+                                <p>{userDetail.designation}</p>
                             </div>
                         </div>
                         <div className="Editsection">
@@ -77,7 +117,7 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Email Address :</p>
                             </div>
                             <div className="userEmail">
-                                <p>{"abcd@gmail.com"}</p>
+                                <p>{userDetail.emailaddress}</p>
                             </div>
                         </div>
                         <div className="Editsection">
@@ -85,7 +125,6 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Edit</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -97,7 +136,7 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Date of Birth :</p>
                             </div>
                             <div className="userDOB">
-                                <p>{"02/02/2222"}</p>
+                                <p>{userDetail.dob}</p>
                             </div>
                         </div>
                         <div className="Editsection">
@@ -105,11 +144,9 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Edit</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             <div className="group169">
                 <div className="group169textandicon">
                     <div className="ContactNumberSection">
@@ -118,7 +155,7 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Contact Number :</p>
                             </div>
                             <div className="userContact">
-                                <p>{"78945612587"}</p>
+                                <p>{userDetail.contactnumber}</p>
                             </div>
                         </div>
                         <div className="Editsection">
@@ -126,11 +163,9 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Edit</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             <div className="group170">
                 <div className="group170textandicon">
                     <div className="citySection">
@@ -139,7 +174,7 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>City :</p>
                             </div>
                             <div className="userCity">
-                                <p>{"Pune"}</p>
+                                <p>{userDetail.city}</p>
                             </div>
                         </div>
                         <div className="Editsection">
@@ -147,7 +182,6 @@ const Tabv1 = ({ setWhichTab }) => {
                                 <p>Edit</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -156,9 +190,8 @@ const Tabv1 = ({ setWhichTab }) => {
                     <div className="ProfilesectionWithEdit">
                         <div className="ProfileSection">
                             <div className="Profile">
-                                <p>Profile Picture </p>
+                                <p>Profile Picture</p>
                             </div>
-
                         </div>
                         <div className="UpdateSection">
                             <div className="update" onClick={handleShowEdit}>
@@ -168,54 +201,50 @@ const Tabv1 = ({ setWhichTab }) => {
                     </div>
                 </div>
             </div>
-
             <div className="group172">
                 <div className="socialMedia">
                     <p>Social Media</p>
                 </div>
             </div>
-
             <div className="socialMediaLinks">
                 <div className="group85">
                     <SocialMedia
                         media="LinkedIn"
-                        links="https://www.linkedin.com"
+                        links={userDetail.linkedin}
                         handleShowEdit={handleShowEdit}
                     />
                 </div>
                 <div className="group86">
                     <SocialMedia
                         media="Twitter"
-                        links="https://twitter.com"
+                        links={userDetail.twitter}
                         handleShowEdit={handleShowEdit}
                     />
                 </div>
                 <div className="group87">
                     <SocialMedia
                         media="Facebook"
-                        links="https://www.facebook.com"
+                        links={userDetail.facebook}
                         handleShowEdit={handleShowEdit}
                     />
                 </div>
                 <div className="group88">
                     <SocialMedia
                         media="Instagram"
-                        links="https://www.instagram.com"
+                        links={userDetail.instagram}
                         handleShowEdit={handleShowEdit}
                     />
                 </div>
                 <div className="group89">
                     <SocialMedia
                         media="Other"
-                        links="https://www.behance.net"
+                        links={userDetail.other}
                         handleShowEdit={handleShowEdit}
                     />
                 </div>
             </div>
-
         </div>
+    );
+};
 
-    )
-}
-
-export default Tabv1
+export default Tabv1;

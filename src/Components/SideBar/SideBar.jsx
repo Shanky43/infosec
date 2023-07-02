@@ -7,6 +7,11 @@ import { LuSettings } from "react-icons/lu"
 import { TbLogout } from "react-icons/tb"
 
 const SideBar = () => {
+    const handleLogout = () => {
+        localStorage.removeItem("isAuth");
+        alert("logout successfull...")
+        window.location.reload();
+    }
     return (
         <div className=' d-flex justify-content-between'>
             <div className='sidebar-box '>
@@ -95,7 +100,7 @@ const SideBar = () => {
                                 </div>
                             </div>
 
-                            <div className="logoutsection">
+                            <div className="logoutsection" onClick={handleLogout}>
                                 <div className="group38">
                                     <div className="logouticon">
                                         <TbLogout size={28} />
@@ -115,7 +120,7 @@ const SideBar = () => {
 
 
             </div>
-          
+
         </div>
 
     )

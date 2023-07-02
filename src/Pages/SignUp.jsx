@@ -1,22 +1,81 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import InfosecLogo from "../assets/infoseclogo.png";
 import "../Styles/signup.css";
 import { FcGoogle } from 'react-icons/fc';
 import { FaTwitter } from 'react-icons/fa';
 import { BsFacebook } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createAccount } from '../Redux/Login/action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const dispatch = useDispatch();
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [showFailureToast, setShowFailureToast] = useState(false);
+  const navigate = useNavigate()
+
+  function SuccessToast({ toastMessage }) {
+    return (
+      <div className={`toast align-items-center text-bg-success border-0 position-fixed top-0 end-0 m-3`} role="alert" aria-live="assertive" aria-atomic="true">
+        <div className="d-flex">
+          <div className="toast-body">
+            {toastMessage}
+          </div>
+          <button type="button" className="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    );
+  }
+
+  function FailureToast({ toastMessage }) {
+    return (
+
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+
+            <strong class="me-auto">Success</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            {toastMessage}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const { errormessage, successmessage } = useSelector((state) => ({
+    errormessage: state.LoginReducer.errormessage,
+    successmessage: state.LoginReducer.successmessage,
+  }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', firstName, lastName, email, password);
+    let value = {
+      firstname: firstName,
+      email,
+      password,
+      lastname: lastName
+    };
+
+    dispatch(createAccount(value))
   };
+
+  useEffect(() => {
+    if (errormessage !== "") {
+      alert(errormessage)
+      navigate("/register")
+    } else if (successmessage !== "") {
+      alert(successmessage)
+      navigate("/login")
+    }
+  }, [errormessage, successmessage]);
 
   return (
     <div className='container'>
@@ -40,6 +99,7 @@ const SignUp = () => {
                     className="form-control"
                     id="firstName"
                     value={firstName}
+                    name="firstName"
                     onChange={(e) => setFirstName(e.target.value)}
                     required
                   />
@@ -51,6 +111,7 @@ const SignUp = () => {
                     className="form-control"
                     id="lastName"
                     value={lastName}
+                    name="lastName"
                     onChange={(e) => setLastName(e.target.value)}
                     required
                   />
@@ -63,10 +124,11 @@ const SignUp = () => {
                   className="form-control"
                   id="email"
                   value={email}
+                  name="email"
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <div className="invalid-feedback">Invalid email id </div>
+                <div className="invalid-feedback">Invalid email id</div>
                 <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
               </div>
               <div className="mb-4 was-validated">
@@ -76,15 +138,22 @@ const SignUp = () => {
                   className="form-control"
                   id="password"
                   value={password}
+                  name="password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <div className="invalid-feedback">Please enter password </div>
+                <div className="invalid-feedback">Please enter password</div>
               </div>
 
               <button type="submit" className="btn mb-3">Register</button>
             </form>
-            <div> <p style={{ textAlign: 'center' }}>or</p></div>
+
+            {showSuccessToast && <SuccessToast toastMessage={successmessage} />}
+            {showFailureToast && <FailureToast toastMessage={errormessage} />}
+
+            <div>
+              <p style={{ textAlign: 'center' }}>or</p>
+            </div>
             <div className='social media'>
               <div className='btn1'>
                 <button type="button" className='p-2 mb-3'> <FcGoogle size={25} /> <span className='px-3 fs-6 fw-semibold text-body-secondary'>Continue with Google</span></button>

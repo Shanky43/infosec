@@ -1,20 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import InfosecLogo from "../assets/infoseclogo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import "../Styles/signin.css";
 import { FaTwitter } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAccount } from '../Redux/Login/action';
+
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const { errormessage, successmessage } = useSelector((state) => ({
+        errormessage: state.LoginReducer.errormessage,
+        successmessage: state.LoginReducer.successmessage,
+    }));
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Add your form submission logic here
-        console.log('Form submitted:', email, password, rememberMe);
+        let value = {
+            email,
+            password,
+        };
+        dispatch(loginAccount(value))
     };
+    useEffect(() => {
+        if (errormessage !== "") {
+            alert(errormessage)
+            navigate("/login")
+        } else if (successmessage !== "") {
+            alert(successmessage)
+            navigate("/")
+        }
+    }, [errormessage, successmessage]);
+
 
     return (
         <div className='container'>

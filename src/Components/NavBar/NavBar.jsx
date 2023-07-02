@@ -10,6 +10,11 @@ import { TbLogout } from 'react-icons/tb';
 import './NavBar.css';
 
 const NavBar = () => {
+    const handleLogout = () => {
+        localStorage.removeItem("isAuth");
+        alert("logout successfull...")
+        window.location.reload();
+    }
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
@@ -25,7 +30,7 @@ const NavBar = () => {
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
                                 <a className="nav-link d-flex flex-column align-items-center" aria-current="page" href="/">
-                                    <RiUserSearchLine size={25}  />
+                                    <RiUserSearchLine size={25} />
                                     <p className="text-center fs-6 fw-semibold">Search Candidate</p>
                                 </a>
                             </li>
@@ -39,7 +44,7 @@ const NavBar = () => {
                                 <a className="nav-link dropdown-toggle d-flex align-items-center" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div className="profile">
                                         <div className="pl-5 d-flex align-items-center" style={{ paddingLeft: "12px" }}>
-                                            <BsPersonCircle size={25}  />
+                                            <BsPersonCircle size={25} />
                                         </div>
                                         <p className="text-center fs-6 fw-semibold">Person</p>
                                     </div>
@@ -50,7 +55,7 @@ const NavBar = () => {
                                     <li><a className="dropdown-item" href="/"><GrSettingsOption size={25} color='gray' /><p>Security</p></a></li>
                                     <li><a className="dropdown-item" href="/"><GrShieldSecurity size={25} backgroundColor='grey' /><p>Security</p></a></li>
                                     <li><a className="dropdown-item" href="/"><FaUserLock size={25} color='gray' /><p>Privacy</p></a></li>
-                                    <li><a className="dropdown-item" href="/"><TbLogout size={25} color='gray' /><p>Logout</p></a></li>
+                                    <li><a className="dropdown-item" href="" onClick={handleLogout}><TbLogout size={25} color='gray' /><p>Logout</p></a></li>
                                 </ul>
                             </li>
                         </ul>

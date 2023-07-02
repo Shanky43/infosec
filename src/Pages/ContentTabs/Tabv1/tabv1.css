@@ -290,7 +290,7 @@
 }
 
 .userCity {
-    width: 48px;
+    width: auto;
     height: 20px;
     top: 430.125px;
     left: 68px;
@@ -550,7 +550,7 @@
 }
 
 .editbutton {
-    margin-left: 87px;
+    margin-left: 90px;
     cursor: pointer;
 }
 
@@ -564,7 +564,7 @@
 }
 
 .links {
-    width: 192px;
+    width: 200px;
     height: 16px;
     top: 679px;
     left: 118px;
@@ -577,6 +577,8 @@
     line-height: 16px;
     letter-spacing: 0em;
     text-align: left;
+    white-space: nowrap;
+    overflow:visible;
 }
 
 input {

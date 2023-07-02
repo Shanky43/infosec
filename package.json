@@ -15,7 +15,8 @@
     "axios": "^1.4.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
-    "react-redux": "^8.1.0"
+    "react-redux": "^8.1.0",
+    "js-cookie": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

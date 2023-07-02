@@ -10,10 +10,8 @@ import ChangePasswordTab from '../../Pages/ContentTabs/ChangePassowrdTab/ChangeP
 import UpdateUserForm from '../../Pages/UpdateUserForm/UpdateUserForm';
 
 const Content = () => {
-    const [activeTab, setActiveTab] = useState('tabv5');
+    const [activeTab, setActiveTab] = useState('tabv1');
     const [whichTab, setWhichTab] = useState(false)
-
-
 
     useEffect(() => {
         const storedTab = localStorage.getItem('activeTab');
