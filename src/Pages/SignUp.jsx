@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { createAccount } from '../Redux/Login/action';
 import InfosecLogo from "../assets/infoseclogo.png";
 import "../Styles/signup.css";
 import { FcGoogle } from 'react-icons/fc';
 import { FaTwitter } from 'react-icons/fa';
 import { BsFacebook } from 'react-icons/bs';
-import { Link, useNavigate } from 'react-router-dom';
-import { createAccount } from '../Redux/Login/action';
-import { useDispatch, useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -14,47 +15,7 @@ const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const dispatch = useDispatch();
-  const [showSuccessToast, setShowSuccessToast] = useState(false);
-  const [showFailureToast, setShowFailureToast] = useState(false);
-  const navigate = useNavigate()
-
-  function SuccessToast({ toastMessage }) {
-    return (
-      <div className={`toast align-items-center text-bg-success border-0 position-fixed top-0 end-0 m-3`} role="alert" aria-live="assertive" aria-atomic="true">
-        <div className="d-flex">
-          <div className="toast-body">
-            {toastMessage}
-          </div>
-          <button type="button" className="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-      </div>
-    );
-  }
-
-  function FailureToast({ toastMessage }) {
-    return (
-
-      <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-
-            <strong class="me-auto">Success</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            {toastMessage}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const { errormessage, successmessage } = useSelector((state) => ({
-    errormessage: state.LoginReducer.errormessage,
-    successmessage: state.LoginReducer.successmessage,
-  }));
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     let value = {
@@ -65,17 +26,17 @@ const SignUp = () => {
     };
 
     dispatch(createAccount(value))
+      .then(() => {
+        // Account creation successful
+        alert("Account Created Successfully...");
+        navigate("/login");
+      })
+      .catch(() => {
+        // Account creation failed
+        alert("User Already Exist...");
+        navigate("/register");
+      });
   };
-
-  useEffect(() => {
-    if (errormessage !== "") {
-      alert(errormessage)
-      navigate("/register")
-    } else if (successmessage !== "") {
-      alert(successmessage)
-      navigate("/login")
-    }
-  }, [errormessage, successmessage]);
 
   return (
     <div className='container'>
@@ -148,9 +109,6 @@ const SignUp = () => {
               <button type="submit" className="btn mb-3">Register</button>
             </form>
 
-            {showSuccessToast && <SuccessToast toastMessage={successmessage} />}
-            {showFailureToast && <FailureToast toastMessage={errormessage} />}
-
             <div>
               <p style={{ textAlign: 'center' }}>or</p>
             </div>
@@ -162,7 +120,6 @@ const SignUp = () => {
               </div>
             </div>
             <div style={{ textAlign: "center", color: "gray" }}>Already have an account? <span style={{ color: "#5460fb" }} className='fw-semibold px-3'><Link to="/login" className='text-decoration-none'>Login here.</Link></span></div>
-
           </div>
         </div>
       </div>

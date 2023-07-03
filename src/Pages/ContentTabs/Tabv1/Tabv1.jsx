@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './tabv1.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getInfosecData } from '../../../Redux/InfosecData/action';
+import Cookies from 'js-cookie';
 
 
 function SocialMedia(props) {
@@ -51,9 +52,9 @@ const Tabv1 = ({ setWhichTab }) => {
         } else {
             // Set dummy data or default values when userDetails is empty
             setUserDetail({
-                fullName: 'John Doe',
+                fullName: Cookies.get("username"),
                 designation: 'Software Engineer',
-                emailaddress: 'johndoe@example.com',
+                emailaddress: Cookies.get("email"),
                 dob: '1990-01-01',
                 contactnumber: '+1234567890',
                 city: 'New York',
@@ -121,13 +122,14 @@ const Tabv1 = ({ setWhichTab }) => {
                             </div>
                         </div>
                         <div className="Editsection">
-                            <div className="edit" onClick={handleShowEdit}>
+                            <div className="edit disabled">
                                 <p>Edit</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div className="group168">
                 <div className="group168textandicon">
                     <div className="DOBSection">

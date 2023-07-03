@@ -34,7 +34,7 @@ const Content = () => {
             case 'tabv2':
                 return <Tabv2 />;
             case 'tabv3':
-                return <Tabv3 />;
+                return <Tabv3 setActiveTab={setActiveTab}/>;
             case 'tabv4':
                 return <Tabv4 />;
             case 'tabv5':

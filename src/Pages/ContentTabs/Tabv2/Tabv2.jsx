@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./tabv2.css"
+import Cookies from 'js-cookie'
 
 
 const Tabv2 = () => {
+    const [userName, setUserName] = useState("")
+    const [userInitials, setUserInitials] = useState("")
+
+    useEffect(() => {
+        let userName = Cookies.get("username")
+        const capitalizedFullName = userName
+            .split(' ')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+        setUserName(capitalizedFullName)
+
+        const initials = userName
+            .split(' ')
+            .map((name) => name.charAt(0).toUpperCase())
+            .join('');
+        setUserInitials(initials);
+
+    }, [])
     return (
         <div className='CompanyDetails'>
             <div className="frame162">
@@ -10,7 +29,7 @@ const Tabv2 = () => {
                     <div className="userName">
                         <div className="user">
                             <div className='userSymbol'>
-                                <p>{"AK"}</p>
+                                <p>{userInitials}</p>
                             </div>
                         </div>
                         <div className='group66'>

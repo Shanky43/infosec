@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RiUserSearchLine } from 'react-icons/ri';
 import { BsCalendar } from 'react-icons/bs';
 import { BsPersonCircle } from 'react-icons/bs';
@@ -8,20 +8,36 @@ import { FaUserLock } from 'react-icons/fa';
 import { TbLogout } from 'react-icons/tb';
 
 import './NavBar.css';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
+    const [profilePicture, setProfilePicture] = useState("");
+    const { userDetails } = useSelector((state) => ({
+        userDetails: state.InfosecReducer.infosecdata.infosecData,
+    }));
+
+    useEffect(() => {
+        if (userDetails && userDetails.length > 0) {
+            const userDetail = userDetails[0];
+            setProfilePicture(userDetail.profilepicture);
+        }
+    }, [userDetails]);
+
     const handleLogout = () => {
         localStorage.removeItem("isAuth");
-        alert("logout successfull...")
+        alert("logout successful...");
         window.location.reload();
-    }
+    };
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
                 <div className="container-fluid">
                     <a className="navbar-brand d-flex " href="/">
                         <img src="https://github.com/Shanky43/infosec/blob/main/src/assets/infoseclogo.png?raw=true" alt="logo" />
-                        <div className="d-flex align-items-center"> <p className="px-3 fw-semibold "><span>Securing Digital World</span></p></div>
+                        <div className="d-flex align-items-center">
+                            <p className="px-3 fw-semibold "><span>Securing Digital World</span></p>
+                        </div>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -44,18 +60,50 @@ const NavBar = () => {
                                 <a className="nav-link dropdown-toggle d-flex align-items-center" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div className="profile">
                                         <div className="pl-5 d-flex align-items-center" style={{ paddingLeft: "12px" }}>
-                                            <BsPersonCircle size={25} />
+                                            {profilePicture !== "" ? (<div className='userProfilePicture'>
+                                                <img src={profilePicture} className='avatar' alt="" />
+                                            </div>) : <BsPersonCircle size={25} />}
                                         </div>
                                         <p className="text-center fs-6 fw-semibold">Person</p>
                                     </div>
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-end">
-                                    <li><a className="dropdown-item" href="/"><GrFormView size={26} color='gray' /><p>View Profile</p></a></li>
-                                    <li><a className="dropdown-item" href="/"><TbUserEdit size={25} color='gray' /><p>Edit Profile</p></a></li>
-                                    <li><a className="dropdown-item" href="/"><GrSettingsOption size={25} color='gray' /><p>Security</p></a></li>
-                                    <li><a className="dropdown-item" href="/"><GrShieldSecurity size={25} backgroundColor='grey' /><p>Security</p></a></li>
-                                    <li><a className="dropdown-item" href="/"><FaUserLock size={25} color='gray' /><p>Privacy</p></a></li>
-                                    <li><a className="dropdown-item" href="" onClick={handleLogout}><TbLogout size={25} color='gray' /><p>Logout</p></a></li>
+                                    <li>
+                                        <p className="dropdown-item">
+                                            <GrFormView size={26} color="gray" />
+                                            <p>View Profile</p>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p className="dropdown-item">
+                                            <TbUserEdit size={25} color="gray" />
+                                            <p>Edit Profile</p>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p className="dropdown-item">
+                                            <GrSettingsOption size={25} color="gray" />
+                                            <p>Security</p>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p className="dropdown-item">
+                                            <GrShieldSecurity size={25} backgroundColor="grey" />
+                                            <p>Security</p>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p className="dropdown-item">
+                                            <FaUserLock size={25} color="gray" />
+                                            <p>Privacy</p>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p className="dropdown-item" onClick={handleLogout}>
+                                            <TbLogout size={25} color="gray" />
+                                            <p>Logout</p>
+                                        </p>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

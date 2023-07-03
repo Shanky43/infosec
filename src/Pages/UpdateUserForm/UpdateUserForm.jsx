@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './updateuserform.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { patchInfosecData } from '../../Redux/InfosecData/action';
+import { patchInfosecData, postInfosecData } from '../../Redux/InfosecData/action';
+import Cookies from 'js-cookie';
 
 
 const UpdateUserForm = ({ setWhichTab }) => {
-    const [fullName, setFullName] = useState('');
+    const [fullName, setFullName] = useState(Cookies.get('username') || " ");
     const [designation, setDesignation] = useState('');
     const [email, setEmail] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
@@ -19,44 +20,106 @@ const UpdateUserForm = ({ setWhichTab }) => {
         Instagram: '',
         Other: ''
     });
-
+    const [allowUpdate, setAllowUpdate] = useState(false)
     const { userDetails } = useSelector((state) => ({
         userDetails: state.InfosecReducer.infosecdata.infosecData,
     }));
     const dispatch = useDispatch()
-    const handleSaveButton = () => {
-        const updatedData = {
-            fullName: fullName || userDetails[0].fullName,
-            designation: designation || userDetails[0].designation,
-            emailaddress: email || userDetails[0].emailaddress,
-            dob: dateOfBirth || userDetails[0].dob,
-            contactnumber: contactNumber || userDetails[0].contactnumber,
-            city: city || userDetails[0].city,
-            profilepicture: profilePicture || userDetails[0].profilepicture,
-            linkedin: socialMediaLinks.LinkedIn || userDetails[0].linkedin,
-            twitter: socialMediaLinks.Twitter || userDetails[0].twitter,
-            facebook: socialMediaLinks.Facebook || userDetails[0].facebook,
-            instagram: socialMediaLinks.Instagram || userDetails[0].instagram,
-            other: socialMediaLinks.Other || userDetails[0].other,
+    useEffect(() => {
+        if (userDetails.length > 0) {
+            const userDetail = userDetails[0];
+            setFullName(userDetail.fullName);
+            setDesignation(userDetail.designation);
+            setEmail(userDetail.email);
+            setDateOfBirth(userDetail.dob);
+            setContactNumber(userDetail.contactnumber);
+            setCity(userDetail.city);
+            setProfilePicture(userDetail.profilepicture);
+            setSocialMediaLinks({
+                LinkedIn: userDetail.linkedin,
+                Twitter: userDetail.twitter,
+                Facebook: userDetail.facebook,
+                Instagram: userDetail.instagram,
+                Other: userDetail.other
+            });
+            setAllowUpdate(true);
+        }
+    }, [userDetails]);
+
+
+    const handleSaveButton = async () => {
+        const userId = Cookies.get('userId');
+        const email = Cookies.get('email');
+        const userData = {
+            fullName,
+            designation,
+            dob: dateOfBirth,
+            contactnumber: contactNumber,
+            city,
+            profilepicture: profilePicture,
+            linkedin: socialMediaLinks.LinkedIn,
+            twitter: socialMediaLinks.Twitter,
+            facebook: socialMediaLinks.Facebook,
+            instagram: socialMediaLinks.Instagram,
+            other: socialMediaLinks.Other,
+            userId,
+            email,
         };
 
-        updatedData.userId = userDetails[0].userId;
+        if (userDetails.length === 0) {
+            // User details not present in Redux store, create a new user (POST request)
+            const hasEmptyValues = Object.values(userData).some((value) => value === '');
+            if (hasEmptyValues && allowUpdate === false) {
+                alert("You don't have complete data. Please fill in the data first.");
+                return;
+            } else {
+                try {
+                    await dispatch(postInfosecData(userData));
+                    alert("Data added successfully...");
+                    window.location.reload();
+                } catch (err) {
+                    alert(err);
+                    window.location.reload();
+                }
+            }
+        } else {
+            // User details present in Redux store, update an existing user (PATCH request)
+            if (!userDetails[0]?.userId) {
+                // User details in Redux store are incomplete, show alert
+                alert("You don't have complete data. Please fill in the data first.");
+            } else {
+                const updateId = userDetails[0]._id;
+                const updatedFields = {};
 
-        console.log(updatedData); // Do whatever you want with the updated data
-        let updateId = userDetails[0]._id;
+                for (const key in userData) {
+                    if (
+                        (userData[key] !== '' || key === 'userId' || key === 'email') && // Check if the field has a value or if it's the userId or email field
+                        userData[key] !== userDetails[0][key] // Check if the value is different from the current value in the backend
+                    ) {
+                        updatedFields[key] = userData[key]; // Add the field to the updatedFields object
+                    } else {
+                        updatedFields[key] = userDetails[0][key]; // Add the current value from the backend to the updatedFields object
+                    }
+                }
 
-        return dispatch(patchInfosecData(updateId, updatedData))
-            .then((res) => {
-                alert(res)
-                window.location.reload()
-                // Handle the response data here if needed
-            })
-            .catch((err) => {
-                alert(err)
-                window.location.reload()
-                // Handle the error here if needed
-            });
+                if (Object.keys(updatedFields).length === 0) {
+                    // No fields to update, show alert
+                    alert("No changes to update.");
+                    return;
+                }
+
+                try {
+                    await dispatch(patchInfosecData(updateId, updatedFields));
+                    alert("Data updated successfully...");
+                    window.location.reload();
+                } catch (err) {
+                    alert(err);
+                    window.location.reload();
+                }
+            }
+        }
     };
+
 
     const handleCancelButton = () => {
         setWhichTab(false);
@@ -96,7 +159,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                                 onChange={handleInputChange(setFullName)}
                             />
                         </div>
-                        <div className="fieldSaveSection">
+                        <div className="fieldSaveSection" onClick={() => setAllowUpdate(true)}>
                             <div className="FieldSaveButton">
                                 <p>Save</p>
                             </div>
@@ -119,7 +182,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                                 onChange={handleInputChange(setDesignation)}
                             />
                         </div>
-                        <div className="fieldSaveSection">
+                        <div className="fieldSaveSection" onClick={() => setAllowUpdate(true)}>
                             <div className="FieldSaveButton">
                                 <p>Save</p>
                             </div>
@@ -140,9 +203,10 @@ const UpdateUserForm = ({ setWhichTab }) => {
                                 className="userInputSection"
                                 value={email}
                                 onChange={handleInputChange(setEmail)}
+                                disabled
                             />
                         </div>
-                        <div className="fieldSaveSection">
+                        <div className="fieldSaveSection" onClick={() => setAllowUpdate(true)}>
                             <div className="FieldSaveButton">
                                 <p>Save</p>
                             </div>
@@ -165,7 +229,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                                 onChange={handleInputChange(setDateOfBirth)}
                             />
                         </div>
-                        <div className="fieldSaveSection">
+                        <div className="fieldSaveSection" onClick={() => setAllowUpdate(true)}>
                             <div className="FieldSaveButton">
                                 <p>Save</p>
                             </div>
@@ -188,7 +252,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                                 onChange={handleInputChange(setContactNumber)}
                             />
                         </div>
-                        <div className="fieldSaveSection">
+                        <div className="fieldSaveSection" onClick={() => setAllowUpdate(true)}>
                             <div className="FieldSaveButton">
                                 <p>Save</p>
                             </div>
@@ -211,7 +275,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                                 onChange={handleInputChange(setCity)}
                             />
                         </div>
-                        <div className="fieldSaveSection">
+                        <div className="fieldSaveSection" onClick={() => setAllowUpdate(true)}>
                             <div className="FieldSaveButton">
                                 <p>Save</p>
                             </div>
@@ -234,7 +298,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                                 onChange={handleInputChange(setProfilePicture)}
                             />
                         </div>
-                        <div className="fieldSaveSection">
+                        <div className="fieldSaveSection" onClick={() => setAllowUpdate(true)}>
                             <div className="FieldSaveButton">
                                 <p>Save</p>
                             </div>
@@ -269,7 +333,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                             />
                         </div>
                     </div>
-                    <div className="UpdateSaveSection">
+                    <div className="UpdateSaveSection" onClick={() => setAllowUpdate(true)}>
                         <div className="UpdateSaveField">
                             <p>Save</p>
                         </div>
@@ -295,7 +359,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                         </div>
                     </div>
                     <div className="UpdateSaveSection">
-                        <div className="UpdateSaveField">
+                        <div className="UpdateSaveField" onClick={() => setAllowUpdate(true)}>
                             <p>Save</p>
                         </div>
                     </div>
@@ -319,7 +383,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                             />
                         </div>
                     </div>
-                    <div className="UpdateSaveSection">
+                    <div className="UpdateSaveSection" onClick={() => setAllowUpdate(true)}>
                         <div className="UpdateSaveField">
                             <p>Save</p>
                         </div>
@@ -344,7 +408,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                             />
                         </div>
                     </div>
-                    <div className="UpdateSaveSection">
+                    <div className="UpdateSaveSection" onClick={() => setAllowUpdate(true)}>
                         <div className="UpdateSaveField">
                             <p>Save</p>
                         </div>
@@ -369,7 +433,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                             />
                         </div>
                     </div>
-                    <div className="UpdateSaveSection">
+                    <div className="UpdateSaveSection" onClick={() => setAllowUpdate(true)}>
                         <div className="UpdateSaveField">
                             <p>Save</p>
                         </div>
@@ -384,7 +448,7 @@ const UpdateUserForm = ({ setWhichTab }) => {
                             <p>Cancel</p>
                         </div>
                     </div>
-                    <div className="UpdatesaveSection">
+                    <div className="UpdatesaveSection" onClick={() => setAllowUpdate(true)}>
                         <div className="Updatesavebutton" onClick={handleSaveButton}>
                             <p>Save</p>
                         </div>

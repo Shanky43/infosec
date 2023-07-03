@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./sidebar.css"
 import { BsFillBuildingsFill, BsFileText } from "react-icons/bs"
 import { MdNoteAlt } from "react-icons/md"
 import { GiHandBag } from "react-icons/gi"
 import { LuSettings } from "react-icons/lu"
 import { TbLogout } from "react-icons/tb"
+import { useSelector } from 'react-redux'
+import Cookies from 'js-cookie'
 
 const SideBar = () => {
+    const [userName, setUserName] = useState("")
+    const [userInitials, setUserInitials] = useState("")
+
+    useEffect(() => {
+        let userName = Cookies.get("username")
+        const capitalizedFullName = userName
+            .split(' ')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+        setUserName(capitalizedFullName)
+
+        const initials = userName
+            .split(' ')
+            .map((name) => name.charAt(0).toUpperCase())
+            .join('');
+        setUserInitials(initials);
+
+    }, [])
     const handleLogout = () => {
         localStorage.removeItem("isAuth");
         alert("logout successfull...")
@@ -18,12 +38,12 @@ const SideBar = () => {
                 <div className='sidebar-content'>
                     <div className='group37'>
                         <div className="frame212">
-                            <p className='profileName'>{"Dr. Arvind K"}</p>
+                            <p className='profileName text-center'>{userName}</p>
                         </div>
                         <div className='frame36'>
                             <div className="ellipse1">
                                 <div className="userprofilename">
-                                    <p className="username">{"AK"}</p>
+                                    <p className="username">{userInitials}</p>
                                 </div>
                             </div>
                         </div>

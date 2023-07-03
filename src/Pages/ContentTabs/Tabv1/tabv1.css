@@ -78,6 +78,7 @@
     padding: 0px 5px 0px 5px;
     border-radius: 4px;
     cursor: pointer;
+    /* border: 1px solid red; */
 }
 
 .edit {
@@ -480,9 +481,10 @@
 }
 
 .socialMediaLinks {
-    width: 420px;
+    width: 500px;
     height: 160px;
     border-radius: 4px;
+  
     /* border: 1px solid #1676F3; */
 }
 
@@ -495,7 +497,7 @@
 .group87,
 .group88,
 .group89 {
-    width: 420px;
+    width: 500px;
     height: 24px;
     top: 811px;
     left: 10px;
@@ -512,6 +514,7 @@
 }
 
 .allSocialMediaLinks {
+  
     margin-left: 9px;
     display: flex;
     justify-content: space-between;
@@ -584,4 +587,7 @@
 input {
     background-color: #E6F7FF80;
 
+}
+.editSection{
+    margin-left: 50px;
 }

@@ -25,17 +25,18 @@ const SignIn = () => {
             email,
             password,
         };
-        dispatch(loginAccount(value))
+        dispatch(loginAccount(value)).then(() => {
+            // Account creation successful
+            alert("Login Successfull...");
+            navigate("/");
+          })
+          .catch(() => {
+            // Account creation failed
+            alert("Wrong Credentials");
+            navigate("/login");
+          });
     };
-    useEffect(() => {
-        if (errormessage !== "") {
-            alert(errormessage)
-            navigate("/login")
-        } else if (successmessage !== "") {
-            alert(successmessage)
-            navigate("/")
-        }
-    }, [errormessage, successmessage]);
+
 
 
     return (
