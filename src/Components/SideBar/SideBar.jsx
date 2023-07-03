@@ -8,7 +8,7 @@ import { TbLogout } from "react-icons/tb"
 import { useSelector } from 'react-redux'
 import Cookies from 'js-cookie'
 
-const SideBar = () => {
+const SideBar = ({ setShowContent }) => {
     const [userName, setUserName] = useState("")
     const [userInitials, setUserInitials] = useState("")
 
@@ -112,7 +112,7 @@ const SideBar = () => {
                             </div>
 
                         </div>
-                        <div className="group210">
+                        <div className="group210" onClick={() => setShowContent(true)}>
                             <div className="settingicon">
                                 <LuSettings size={23} />
                                 <div className="settingname">

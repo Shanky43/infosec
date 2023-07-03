@@ -5,7 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import "../Styles/signin.css";
 import { FaTwitter } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginAccount } from '../Redux/Login/action';
 
 const SignIn = () => {
@@ -14,10 +14,6 @@ const SignIn = () => {
     const [rememberMe, setRememberMe] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    const { errormessage, successmessage } = useSelector((state) => ({
-        errormessage: state.LoginReducer.errormessage,
-        successmessage: state.LoginReducer.successmessage,
-    }));
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,12 +25,12 @@ const SignIn = () => {
             // Account creation successful
             alert("Login Successfull...");
             navigate("/");
-          })
-          .catch(() => {
-            // Account creation failed
-            alert("Wrong Credentials");
-            navigate("/login");
-          });
+        })
+            .catch(() => {
+                // Account creation failed
+                alert("Wrong Credentials");
+                navigate("/login");
+            });
     };
 
 

@@ -8,18 +8,21 @@ import { FaUserLock } from 'react-icons/fa';
 import { TbLogout } from 'react-icons/tb';
 
 import './NavBar.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getInfosecData } from '../../Redux/InfosecData/action';
 
-const NavBar = () => {
+const NavBar = ({ setShowContent }) => {
     const [profilePicture, setProfilePicture] = useState("");
     const { userDetails } = useSelector((state) => ({
         userDetails: state.InfosecReducer.infosecdata.infosecData,
     }));
-
+    const disptach = useDispatch()
     useEffect(() => {
         if (userDetails && userDetails.length > 0) {
             const userDetail = userDetails[0];
             setProfilePicture(userDetail.profilepicture);
+        } else {
+            disptach(getInfosecData)
         }
     }, [userDetails]);
 
@@ -81,9 +84,9 @@ const NavBar = () => {
                                         </p>
                                     </li>
                                     <li>
-                                        <p className="dropdown-item">
+                                        <p className="dropdown-item" onClick={() => setShowContent(true)}>
                                             <GrSettingsOption size={25} color="gray" />
-                                            <p>Security</p>
+                                            <p>Setting</p>
                                         </p>
                                     </li>
                                     <li>
