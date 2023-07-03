@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './changePasswordTab.css';
 
+import { useDispatch } from 'react-redux';
+import { updatePassword } from '../../../Redux/Login/action';
+import Cookies from 'js-cookie';
 const ChangePasswordTab = ({ setChangePassword }) => {
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const dispatch = useDispatch()
 
     const handleOldPasswordChange = (e) => {
         setOldPassword(e.target.value);
@@ -21,9 +25,36 @@ const ChangePasswordTab = ({ setChangePassword }) => {
         setConfirmPassword(e.target.value);
         console.log(e.target.value, "confirmPassword");
     };
-    const handleChangePassword = () => {
-        setChangePassword(false)
-    }
+
+    const handleChangePassword = async () => {
+        let userId = Cookies.get("userId")
+        console.log(userId)
+        try {
+            // Validate the new password and confirm password
+            if (newPassword === confirmPassword) {
+
+                const res = await dispatch(updatePassword(userId, oldPassword, confirmPassword));
+
+                // Password updated successfully
+                alert(res);
+
+                // Reset the input fields
+                setOldPassword('');
+                setNewPassword('');
+                setConfirmPassword('');
+
+                // Set any success message or trigger any necessary actions
+            } else {
+                alert('New password and confirm password do not match.');
+            }
+        } catch (error) {
+            console.error(error.message);
+            // Handle the error appropriately
+        }
+
+
+    };
+
     return (
         <div className="tabv6Section">
             <div className="tabv6Section-1">
@@ -40,7 +71,7 @@ const ChangePasswordTab = ({ setChangePassword }) => {
                         </div>
                         <div className="InputBox">
                             <input
-                                type="text"
+                                type="password"
                                 className="input-box"
                                 value={oldPassword}
                                 onChange={handleOldPasswordChange}
@@ -62,7 +93,7 @@ const ChangePasswordTab = ({ setChangePassword }) => {
                         </div>
                         <div className="InputBox">
                             <input
-                                type="text"
+                                type="password"
                                 className="input-box"
                                 value={newPassword}
                                 onChange={handleNewPasswordChange}
@@ -84,7 +115,7 @@ const ChangePasswordTab = ({ setChangePassword }) => {
                         </div>
                         <div className="InputBox">
                             <input
-                                type="text"
+                                type="password"
                                 className="input-box"
                                 value={confirmPassword}
                                 onChange={handleConfirmPasswordChange}
